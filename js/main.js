@@ -1,3 +1,6 @@
+let playerScore = 0
+let computerScore = 0
+
 function getComputerChoice() {
   array = ['Rock', 'Paper', 'Scissors']
   return randomElement = array[Math.floor(Math.random() * array.length)].toUpperCase();
@@ -39,18 +42,29 @@ function checkWin(computerSelection, playerSelection) {
   } 
 }
 
+function score(input) {
+  if (input == "c") {
+    computerScore++;
+  } else if (input = "p") {
+    playerScore++;
+  } else {
+    return;
+  }
+}
+
 function playRound(computerSelection, playerSelection) {
-  checkWin(computerSelection, playerSelection)
+  score(checkWin(computerSelection, playerSelection));
+  return playerScore;
 }
 
 function game() {
   
 }
 
-// const computerSelection = getComputerChoice()
-// const playerSelection = getPlayerChoice()
+const computerSelection = getComputerChoice()
+const playerSelection = getPlayerChoice()
  
 
-// console.log(playRound(computerSelection, playerSelection))
+console.log(playRound(computerSelection, playerSelection))
 
-console.log(checkWin(getComputerChoice(), getPlayerChoice()))
+// console.log(checkWin(getComputerChoice(), getPlayerChoice()))
