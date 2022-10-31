@@ -29,6 +29,13 @@ function checkWin(computerSelection, playerSelection) {
     alert('You lose! Scissors beats paper!');
   } 
 }
+
+function playRound(computerSelection, playerSelection) {
+  checkWin(computerSelection, playerSelection)
+}
+
+const computerSelection = getComputerChoice()
+const playerSelection = getPlayerChoice()
  
 
-console.log(checkWin(getComputerChoice(), getPlayerChoice()))
+console.log(playRound(computerSelection, playerSelection))
