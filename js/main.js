@@ -57,14 +57,25 @@ function playRound(computerSelection, playerSelection) {
   return playerScore;
 }
 
-function game() {
-  
+function gameOver() {
+  (playerScore > computerScore) ? alert("Congrats, player wins!") : alert("Sorry, the computer wins!");
 }
 
-const computerSelection = getComputerChoice()
-const playerSelection = getPlayerChoice()
+function game() {
+  for (let i = 0; i < 5; i++) {
+    // console.log(i)
+    playRound(getComputerChoice(), getPlayerChoice());
+  }
+  gameOver();
+}
+
+// const computerSelection = getComputerChoice()
+// const playerSelection = getPlayerChoice()
  
 
-console.log(playRound(computerSelection, playerSelection))
+// console.log(playRound(computerSelection, playerSelection))
 
 // console.log(checkWin(getComputerChoice(), getPlayerChoice()))
+
+
+console.log(game())
