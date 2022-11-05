@@ -69,13 +69,4 @@ function game() {
   gameOver();
 }
 
-// const computerSelection = getComputerChoice()
-// const playerSelection = getPlayerChoice()
- 
-
-// console.log(playRound(computerSelection, playerSelection))
-
-// console.log(checkWin(getComputerChoice(), getPlayerChoice()))
-
-
 console.log(game())
