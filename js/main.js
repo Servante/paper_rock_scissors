@@ -1,9 +1,9 @@
 let playerScore = 0
 let computerScore = 0
 
-function getComputerChoice() {
+function getComputerSelection() {
   array = ['Rock', 'Paper', 'Scissors']
-  return randomElement = array[Math.floor(Math.random() * array.length)].toUpperCase();
+  return randomElement = array[Math.floor(Math.random() * array.length)].toLowerCase();
 }
 
 function getPlayerChoice() {
@@ -61,12 +61,27 @@ function gameOver() {
   (playerScore > computerScore) ? alert("Congrats, player wins!") : alert("Sorry, the computer wins!");
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    // console.log(i)
-    playRound(getComputerChoice(), getPlayerChoice());
-  }
-  gameOver();
-}
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     // console.log(i)
+//     playRound(getComputerChoice(), getPlayerChoice());
+//   }
+//   gameOver();
+// }
 
-console.log(game())
+// console.log(game())
+const buttons = document.querySelectorAll('button');
+const result = document.querySelector('.results');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    console.log(e.target.value);
+     var playerSelection = document.createElement('p');
+     playerSelection.innerText = e.target.value;
+     var computerSelection = document.createElement('p');
+     computerSelection.innerText = getComputerSelection();
+     result.appendChild(playerSelection);
+     result.appendChild(computerSelection);
+  });
+});
+
