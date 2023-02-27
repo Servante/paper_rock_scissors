@@ -30,6 +30,14 @@ function checkGameWin() {
   }  
 };
 
+function gameOver() {
+  userScore = 0;
+  computerScore = 0;
+  userScore_span.innerHTML = userScore;
+  computerScore_span.innerHTML = computerScore;
+  result_p.innerText = "Choose a move to play again."
+}
+
 function win(userChoice, compChoice) {
   const userChoice_div = document.getElementById(userChoice);
   userScore++;
