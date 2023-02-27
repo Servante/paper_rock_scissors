@@ -11,7 +11,28 @@ const scissors_div = document.getElementById("s");
 function getComputerChoice() {
   const choices = ['r', 'p', 's'];
   const randomNumber = Math.floor(Math.random() * 3);
-  return choices(randomNumber);
+  return choices[randomNumber];
+}
+
+function game(UserChoice) {
+  const computerChoice = getComputerChoice();
+  switch (UserChoice + computerChoice) {
+    case "rs":
+    case "pr":
+    case "sp":
+      win();
+      break; 
+    case "sr":
+    case "rp":
+    case "ps":
+      lose();
+      break;
+    case "rr":
+    case "pp":
+    case "ss":
+      draw();
+      break;
+  }
 }
 
 function main() {
@@ -23,9 +44,9 @@ function main() {
     game("p");
   });
 
-  paper_div.addEventListener('click', function() {
+  scissors_div.addEventListener('click', function() {
     game("s");
-  }
+  });
 };
 
 
