@@ -18,7 +18,17 @@ function convertWord(letter) {
   if (letter === "r") return "Rock";
   if (letter === "p") return "Paper";
   if (letter === "s") return "Scissors";
-}
+};
+
+function checkGameWin() {
+  if (userScore >= 5) {
+    alert("User wins!");
+    gameOver();
+  } else if (computerScore >= 5) {
+    alert("User loses!");
+    gameOver();
+  }  
+};
 
 function win(userChoice, compChoice) {
   const userChoice_div = document.getElementById(userChoice);
@@ -28,6 +38,7 @@ function win(userChoice, compChoice) {
   result_p.innerText = `${convertWord(userChoice)} beats ${convertWord(compChoice)}! User wins!`;
   userChoice_div.classList.add('green-glow');
   setTimeout(() => userChoice_div.classList.remove('green-glow'), 300);
+  checkGameWin();
 };
 
 function lose(userChoice, compChoice) {
@@ -38,6 +49,7 @@ function lose(userChoice, compChoice) {
   result_p.innerText = `${convertWord(compChoice)} beats ${convertWord(userChoice)}! User loses!`;
   userChoice_div.classList.add('red-glow');
   setTimeout(() => userChoice_div.classList.remove('red-glow'), 300);
+  checkGameWin();
 };
 
 function draw(userChoice, compChoice) {
