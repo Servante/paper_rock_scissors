@@ -21,21 +21,30 @@ function convertWord(letter) {
 }
 
 function win(userChoice, compChoice) {
+  const userChoice_div = document.getElementById(userChoice);
   userScore++;
   userScore_span.innerHTML = userScore;
   computerScore_span.innerHTML = computerScore;
   result_p.innerText = `${convertWord(userChoice)} beats ${convertWord(compChoice)}! User wins!`;
+  userChoice_div.classList.add('green-glow');
+  setTimeout(() => userChoice_div.classList.remove('green-glow'), 300);
 };
 
 function lose(userChoice, compChoice) {
+  const userChoice_div = document.getElementById(userChoice);
   computerScore++;
-  userScore_span.innerHTML = userScore;
+  userScore_span.innerHTML = userScore; 
   computerScore_span.innerHTML = computerScore;
   result_p.innerText = `${convertWord(compChoice)} beats ${convertWord(userChoice)}! User loses!`;
+  userChoice_div.classList.add('red-glow');
+  setTimeout(() => userChoice_div.classList.remove('red-glow'), 300);
 };
 
 function draw(userChoice, compChoice) {
+  const userChoice_div = document.getElementById(userChoice);
   result_p.innerText = `${convertWord(compChoice)} equals ${convertWord(userChoice)}! Draw!`;
+  userChoice_div.classList.add('gray-glow');
+  setTimeout(() => userChoice_div.classList.remove('gray-glow'), 300);
 };
 
 function game(userChoice) {
@@ -60,17 +69,9 @@ function game(userChoice) {
 };
 
 function main() {
-  rock_div.addEventListener('click', function() {
-    game("r");
-  });
-
-  paper_div.addEventListener('click', function() {
-    game("p");
-  });
-
-  scissors_div.addEventListener('click', function() {
-    game("s");
-  });
+  rock_div.addEventListener('click', () => game("r"));
+  paper_div.addEventListener('click', () => game("p"));
+  scissors_div.addEventListener('click', () => game("s"));
 };
 
 
